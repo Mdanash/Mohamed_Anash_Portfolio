@@ -1,2 +1,14 @@
-# Mohamed_Anash_Portfolio
-A responsive and animated personal portfolio website showcasing my skills, certifications, projects, internships, and contact information. Built with HTML, CSS, and JavaScript featuring a mobile-friendly layout, scroll animations, dark mode, and contact form integration.
+## 🌐 Personal Portfolio
+
+This is my professional portfolio website designed to highlight my skills, projects, certifications, and internship experience.
+
+### ✨ Features
+- Responsive design (mobile, tablet, desktop)
+- Animated skill and certification sections
+- Sticky navigation with dark mode toggle
+- Scroll-to-top button and smooth transitions
+- Contact form using FormSubmit.co
+- Built with HTML, CSS, and JavaScript
+
+### 📂 Live Demo
+[View Portfolio](https://your-username.github.io/portfolio/)  
