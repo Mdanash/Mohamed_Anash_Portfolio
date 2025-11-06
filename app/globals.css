@@ -1,0 +1,464 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================
+   GLOBAL VARIABLES
+=========================================================== */
+:root {
+  --accent: #6366f1;
+  --page-bg: #ffffff;
+  --page-text: #1e293b;
+  --dark-bg: #0f172a;
+  --dark-text: #e2e8f0;
+}
+
+/* ===========================================================
+   BASE STYLES
+=========================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply transition-colors duration-300 ease-in-out;
+  background-color: var(--page-bg);
+  color: var(--page-text);
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+.dark body {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* ===========================================================
+   SECTION + TITLE STYLES
+=========================================================== */
+section {
+  @apply py-20 relative;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold text-center mb-10;
+  color: var(--accent);
+}
+
+/* ===========================================================
+   TEXT + LINK + BUTTON STYLES
+=========================================================== */
+h1, h2, h3, h4, h5 {
+  @apply font-semibold;
+}
+
+a {
+  @apply transition-colors duration-300;
+}
+
+button {
+  @apply transition-all duration-300;
+}
+
+/* ===========================================================
+   HERO SECTION
+=========================================================== */
+.hero {
+  @apply relative flex flex-col justify-center items-center text-center min-h-screen px-6 md:px-12 overflow-hidden;
+}
+
+.hero h1 {
+  @apply text-4xl md:text-6xl font-extrabold mb-3;
+}
+
+.hero p {
+  @apply text-lg md:text-xl max-w-2xl mx-auto leading-relaxed;
+}
+
+/* ===========================================================
+   BUTTONS
+=========================================================== */
+.btn-primary {
+  @apply bg-[color:var(--accent)] text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 shadow-md hover:shadow-lg transition-transform;
+}
+
+.btn-outline {
+  @apply border border-[color:var(--accent)] text-[color:var(--accent)] px-6 py-3 rounded-xl font-semibold hover:bg-[color:var(--accent)] hover:text-white transition-all;
+}
+
+/* ===========================================================
+   SCROLL TO TOP BUTTON
+=========================================================== */
+.scroll-top-btn {
+  @apply fixed right-6 bottom-6 bg-[color:var(--accent)] text-white p-3 rounded-full shadow-lg hover:scale-110 transition-all duration-300;
+  z-index: 50;
+}
+
+/* ===========================================================
+   ANIMATIONS BASE
+=========================================================== */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* ===========================================================
+   SKILL SECTION ANIMATION
+=========================================================== */
+@keyframes skillEntry {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-skill-entry {
+  animation: skillEntry 0.8s ease-out forwards;
+}
+
+.skill-card {
+  @apply flex flex-col items-center justify-center bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl shadow-md p-4 transition-all duration-300;
+  animation-fill-mode: both;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
+}
+
+.skill-icon {
+  @apply w-16 h-16 flex items-center justify-center rounded-full shadow-inner transition-transform duration-300;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1),
+    transparent
+  );
+}
+
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1) rotate(4deg);
+  background: radial-gradient(circle at 50% 50%, rgba(99,102,241,0.15), transparent 60%);
+}
+
+/* ===========================================================
+   EXPERIENCE SECTION ANIMATION
+=========================================================== */
+@keyframes expEntry {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-exp-entry {
+  animation: expEntry 0.9s ease-out forwards;
+}
+
+.experience-card {
+  @apply bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl shadow-md p-6 w-full md:w-3/4 lg:w-2/3 text-center transition-all duration-300;
+}
+
+.experience-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1),
+    rgba(14, 165, 233, 0.08)
+  );
+}
+
+/* glowing pulse */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 0 rgba(99, 102, 241, 0); }
+  50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.15); }
+  100% { box-shadow: 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+.experience-card:hover {
+  animation: expEntry 0.9s ease-out forwards, glowPulse 3s ease-in-out infinite;
+}
+
+/* ===========================================================
+   EDUCATION SECTION ANIMATION
+/* ========================= EDUCATION CARD: FORCE OPAQUE BACKGROUND ========================= */
+/* Replace any previous .education-card / .education-card:hover rules with these */
+
+.education-card {
+  position: relative;
+  z-index: 50; /* ensure card always paints above timeline */
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* --- solid opaque base background to block timeline showing through --- */
+  background-color: #ffffff;          /* light mode solid */
+  color: #0f172a;
+  border: 1px solid rgba(15,23,42,0.06);
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background-image 0.28s ease;
+  overflow: visible;
+}
+
+/* dark mode opaque base */
+.dark .education-card {
+  background-color: #0b1220; /* dark solid */
+  color: #e6eef8;
+  border: 1px solid rgba(148,163,184,0.06);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.35);
+}
+
+/* Hover/focus: show a soft gradient overlay on top of the opaque base.
+   Note: background-image sits on top of background-color and does not
+   make the underlying color transparent, so the timeline line can't show. */
+.education-card:hover,
+.education-card:focus-within {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 14px 40px rgba(99, 102, 241, 0.18);
+  background-image: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(14,165,233,0.04));
+  /* keep background-color unchanged so card remains opaque */
+}
+
+/* accessibility focus */
+.education-card:focus-visible {
+  outline: 2px solid rgba(99,102,241,0.9);
+  outline-offset: 4px;
+  z-index: 60; /* highest when focused */
+}
+
+/* make sure the timeline line is behind everything */
+.timeline-container::before {
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ensure the container creates its own stacking context so z-index rules are respected */
+.timeline-container {
+  position: relative;
+  isolation: isolate;
+}
+
+/* ===========================================================
+   PROJECTS SECTION ANIMATION
+=========================================================== */
+@keyframes projectEntry {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(40px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-project-entry {
+  animation: projectEntry 0.9s ease-out forwards;
+}
+
+.project-card {
+  @apply bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl shadow-md transition-all duration-300;
+  animation-fill-mode: both;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1),
+    rgba(14, 165, 233, 0.08)
+  );
+}
+
+.project-button {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.project-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25);
+}
+
+/* ===========================================================
+   INPUTS + FORMS
+=========================================================== */
+input, textarea {
+  @apply w-full border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-sm bg-transparent outline-none focus:border-[color:var(--accent)] transition;
+}
+textarea { @apply min-h-[150px]; }
+
+/* ===========================================================
+   HIDE SCROLLBAR
+=========================================================== */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ===========================================================
+   HEADER + FOOTER
+=========================================================== */
+header {
+  @apply fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-sm transition-colors;
+}
+
+footer {
+  @apply text-center py-6 mt-10 text-sm text-slate-600 dark:text-slate-400;
+}
+
+/* ===========================================================
+   BACKGROUND EFFECTS
+=========================================================== */
+.sb-background-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Dark mode space background */
+.sb-nebula-layer { position: absolute; inset: 0; }
+.sb-nebula-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.55;
+}
+.sb-nebula-1 {
+  width: 900px; height: 480px; left: 6%; top: 14%;
+  background: radial-gradient(circle at 30% 30%, rgba(99,102,241,0.22), transparent 35%);
+}
+.sb-nebula-2 {
+  width: 700px; height: 420px; right: 6%; bottom: 8%;
+  background: radial-gradient(circle at 70% 70%, rgba(14,165,233,0.14), transparent 35%);
+}
+.sb-stars-layer { position: absolute; inset: 0; }
+.sb-star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 6px rgba(255,255,255,0.85);
+  animation: sb-twinkle 3s infinite ease-in-out;
+}
+@keyframes sb-twinkle {
+  0%,100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+
+/* Light mode gradient waves */
+.sb-gradient-wave {
+  position: absolute; inset: 0; overflow: hidden;
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  z-index: 0;
+}
+.sb-wave {
+  position: absolute; width: 200%; height: 200%;
+  border-radius: 45%; opacity: 0.4;
+  animation: sb-waveMove 18s ease-in-out infinite;
+  filter: blur(60px);
+}
+.sb-wave1 { background: radial-gradient(circle at 30% 30%, rgba(255,176,189,0.45), transparent 60%); animation-delay: 0s; }
+.sb-wave2 { background: radial-gradient(circle at 70% 70%, rgba(173,216,230,0.45), transparent 60%); animation-delay: 6s; }
+.sb-wave3 { background: radial-gradient(circle at 50% 90%, rgba(178,255,217,0.45), transparent 60%); animation-delay: 12s; }
+
+@keyframes sb-waveMove {
+  0%,100% { transform: translate(0,0) scale(1); }
+  25% { transform: translate(10%, -5%) scale(1.05); }
+  50% { transform: translate(-8%, 5%) scale(1.1); }
+  75% { transform: translate(6%, -3%) scale(1.05); }
+}
+
+/* ===========================================================
+   RESPONSIVE FIXES
+=========================================================== */
+
+/* Prevent horizontal scroll */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Text size scaling */
+h1 { font-size: clamp(1.8rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+p  { font-size: clamp(0.95rem, 2.5vw, 1.05rem); }
+
+/* Buttons scaling */
+button, .btn-primary, .btn-outline {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* Section padding on mobile */
+section {
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* Fix grid responsiveness */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+}
+
+/* Responsive input sizing */
+input, textarea {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* Fix hero alignment for small screens */
+.hero {
+  padding-top: 6rem;
+  text-align: center;
+}
+
+/* Hide scrollbars on mobile skill scroll */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Skill card responsiveness */
+.skill-card {
+  @apply bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex flex-col items-center justify-center shadow-md transition-transform duration-300;
+}
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+}
