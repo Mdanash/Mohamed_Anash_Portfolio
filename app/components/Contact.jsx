@@ -75,7 +75,7 @@ export default function Contact() {
             <a href="https://github.com/mdanash" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-2xl hover:text-[color:var(--accent)] transition">
               <FaGithub />
             </a>
-            <a href="https://www.linkedin.com/in/Mohamed-anash" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-2xl hover:text-[color:var(--accent)] transition">
+            <a href="https://in.linkedin.com/in/mohamed-anash" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-2xl hover:text-[color:var(--accent)] transition">
               <FaLinkedin />
             </a>
             <a href="mailto:mohamedanash0404@gmail.com" aria-label="Email" className="text-2xl hover:text-[color:var(--accent)] transition">
@@ -90,3 +90,4 @@ export default function Contact() {
     </section>
   );
 }
+
