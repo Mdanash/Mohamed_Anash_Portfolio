@@ -12,6 +12,11 @@ export default function Certifications() {
       image: "/images/python certification.png",
     },
     {
+      title: "n8n No Code AI Agent Builder",
+      provider: "Simplilearn",
+      image: "/images/n8n Ai Agent Builder Certificate.jpg",
+    },
+    {
       title: "Data Analyst",
       provider: "Honeywell",
       image: "/images/data analyst.png",
@@ -81,3 +86,4 @@ export default function Certifications() {
     </section>
   );
 }
+
