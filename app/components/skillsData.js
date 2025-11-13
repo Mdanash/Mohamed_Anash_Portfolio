@@ -2,6 +2,7 @@
 
 const skills = [
   { name: "Python", icon: "/images/Python.svg" },
+  { name: "n8n", icon: "/images/n8n.svg" },
   { name: "TensorFlow", icon: "/images/TensorFlow.svg" },
   { name: "Keras", icon: "/images/Keras.svg" },
   { name: "Scikit-Learn", icon: "/images/scikit-learn.svg" },
@@ -14,3 +15,4 @@ const skills = [
 ];
 
 export default skills;
+
